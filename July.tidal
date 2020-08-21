@@ -1,0 +1,93 @@
+d1 $ sometimes (struct "t*16")
+    $ rarely (|+ note "[12|24|36]")
+    $ always (0.125 <~)
+    $ sometimes (|+ note "-12")
+    $ jux rev
+    $ s "incoming:3*4"
+    # squiz 8 
+    # gain 0.9
+    # room rand
+
+d2 $ sometimes (0.25 <~)
+    $ every 3 (0.125 <~)
+    $ jux rev
+    $ off 0.25 (|+ note "12")
+    $ note "0 12 5 7*2"
+    # s "jungbass"
+    |+ note "12"
+    # gain 1
+
+d3 $ sometimes (0.05 <~)
+    $ rarely (# gain 0.5)
+    $ s "gretsch*16"
+    # gain 1.3
+
+d4 $ s "house*4" # room 0.6
+
+d5 $ sometimes (0.25 <~)
+    $ sometimes (# room 0.5)
+    $ jux rev
+    $ off 0.125 (jux rev)
+    $ striate 16
+    $ s "if:2"
+    # note "[0|3 | -7 |0|-2|-5]"
+    |+ note "[0, -2.01, 24.01]"
+    # squiz (irand 8)
+
+hush
+
+d1 $ silence
+
+
+d1 $ jux rev
+    $ sometimes (# gain 0)
+    $ fast 8 $ sometimes (0.25 <~)
+    $ off 0.25 (jux rev)
+    $ off 0.125 (|+ note "-7" )
+    $ note "[[~ 0] 12*4 7*3 3, -7*3 -2 [~ -9]]"
+    # s "gtr ~ gtr:1 gtr:2"
+    # legato 0.4
+    # lpf (rand * 5300)
+    # gain rand
+
+d2 $ jux rev
+    $ sometimes (# gain 0)
+    $ fast 8
+    $ jux rev
+    $ s "metal*16"
+    # note "[0, 7]"
+    # gain ((rand*0.5)+0.5)
+    # room (rand)
+    # legato 0.3
+
+
+hush
+
+d3 $ jux rev
+    $ sometimes (# gain 0)
+    $ fast 32
+    $ striate 64
+    $ s "hmm"
+    # room 0.8
+    # note ((irand 32)-24)
+    # hpf 500
+
+d4 $ jux rev
+    $ fast 4
+    $ s "hoover*8"
+    # note "[0|7|3|15]"
+    # gain 0.6
+
+setcps 1
+d1 $ s "bubble*16" # n (irand 8) # cps (rand+0.25) # djf rand # room (rand*1) # size rand # lpf (sine*8000) 
+
+d2 
+    $ jux rev 
+    $ off 0.35 (hurry 0.7) 
+    $ off 0.125 (hurry 0.5) 
+    $ hurry (0.125) 
+    $  s "bottle*80" # n (irand 13) # room 0.9 # size 0.9 # hpf 500 # gain ((rand*0.6))
+    # hpf 800
+    # cps (0)
+
+hush

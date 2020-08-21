@@ -1,0 +1,34 @@
+d1 $ every 3 (zoom (0.01, 2)) $ every 4 (# note "~") $ note (degradeBy 0.05 "[0 12 48 -24]*12") 
+  # sound "supernoise/8" # midinote ((irand 40)+60) 
+  # attack "0.7" # room 0.6 # size 0.9 # pitch1 "4" # resonance "0.8" # voice "0.5" # pan rand
+
+d2 $ sometimes (# note "-24 -12 -32 -55?") $ fast 16 $ striate 128 (sound "metal") |- 
+  note (rand*64) # gain 0.7 # djf rand # room 0.7 # size 0.7 # up (irand 12)
+
+d3 $ every 4 (spread ($) [slow 6, fast 4, (# crush 4)]) 
+  $ spread ($) [slow 2, fast 4, rev, chop "<68>"] $ sound "uxay:4*4 uxay:8*4" # release 0.05
+
+d4 $ every 4 (fast 0.5) $ every 3 (0.125 <~) $ often (0.25 <~) $ fast 4 $ sound "popkick(3,8)" 
+  # release (rand * 0.5) # room (rand*0.5+0.2) 
+  # n (irand 4) # note (irand 2) # gain 0.8
+  # hpf 800
+
+d5 $ degradeBy 0.3 $ often (fast 32) $ often (# gain 0.3) $ sound "lighter(40,50)" # pan rand  
+  # gain 0.8 # release 0.05 # room 0.3 # size 0.8
+
+d6 $ every 2 (0.1 <~) $ every 3 (0.125 <~) $ sometimes (fast 4) $ degradeBy 0.2 
+  $ note "[[67 63]*12, [31 0], 15 32 48, 63*4]" 
+  # sound "moog" # lpf ((irand 400)) # attack ((rand/10)+0.4) 
+  # room 0.3 # release (rand*0.5 + 0.5) # gain 0.8 # pan rand
+
+d7 $ every 2 (0.0625 <~) $ every 4 (0.625 <~) $ every 3 (0.125 <~) 
+  $ every 5 (0.5 <~) $ slow 2 $ fast 4 $ note "0 0 0 3 -12? -4? -22 12" 
+  # sound "hh" # room 0.7 # hpf 200 # lpf (irand 2500)
+
+d8 $ degradeBy 0.1 $ n (run 16) # sound "drumtraks" # gain 0.7 # lpf 1000 
+  # crush 1 # room 0.5 
+
+d9 $ every 2 (0.25 <~) $ every 3 (1.25 <~) $ sound "bd(3,8) sn(5,8)" 
+  # lpf 10000 # gain 0.9 # room 0.3
+
+hush

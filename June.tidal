@@ -1,0 +1,114 @@
+d5 $ sometimes (0.25 <~) $ every 3 (hurry 2) $ every 5 (# room 0.25) $ every 4 (# cps sine) $ sometimes (# cps saw) $ rarely (# cps 0.125) $ fast 0.25 $ sound "clubkick:2 reverbkick odx*16 chink" # n (irand 6) # gain "1" # room "0.4 0.8 0.9" # sz "0.4 0.2 0.7" # delay 0.5
+d2 $ fast 4 $ every 5 (hurry 2) $ hurry 0.5 $ sound "bd(3,8)" # speed 2 # crush 2 # size 0.5 # size 0.5
+d6 $ sometimes (hurry 0.25 ) $ fast 0.5 $ sound "hc*8" # n (choose [0, 2, 3, 4]) # gain 0.8 # crush "1 3 1 4 [8]" # note "-32" # cut 1 # legato 1
+d5 $ fast 2 $  sound "gab*8" # n (choose [0, 1, 2, 5])+12 # gain 0.9 # n (irand 5)
+d4 $jux rev $ off 0.125 (# note "0 2 3 ~ 4 2 ~ ~") $ rarely (0.25 <~) $ sometimes (# s "{bd, sd, sd:2}") $ hurry 1 $ n "0 2 ~ 0 ~ 12 0 ~" # s "{reverbkick, reverbkick, reverbkick}" # speed "{0.25, 0.51, 8}" # room 0.7 # size 0.4 # legato 1 # gain 0.6
+d6 $ fast 2 $ s "reverbkick(5,8)" # note (choose[32, 24, 15, 27]-24) # size "{0.5 0.7}" # gain 1
+d7 $ fast 2 $ s "dino:1" # crush 4 # note (choose [12, 15, -13, 23]) # room 0.9 # size 0.4 # gain 1 # lpf 1000
+d1 $ silence
+d5$ off 0.125 (# hpf 200) $ jux rev $ s "clubkick*16" # n (irand 5) # gain 1
+setcps 0.5
+hush
+d3 $ silence
+d5 $ rarely (hurry 0.5) $ sometimes (0.25 <~) $ rarely (0.4 <~) $ always (slice 8 "[<0*6 0*2> 3*4 2 [4, 3, 8]] [4 .. 7]") $ sound "dino:1" # gain 1 # legato 1 # crush 8
+d4 $ slow 2 $ sometimes (0.5 <~) $ slice 4 ("0*16 1 2*8 [~ 3 5*8 7 7] ~ ~ ~ 2*4 2*8 1*4 3*2") $ sound "{dino, dino:1, dino:1}" # speed "{1, 1.01, 0.99}" # gain 0.4 # room 0.4 # size 0.7
+d6 $ slow 4 $ slice 8 ("0 1 2 3*4 4*8 5 6 7") $ sound "{dino:1, dino:1, dino:1}" # speed "{1, 1.01, 0.99}" # gain 0.4 # room 0.4 # size 0.4
+d6 $ sometimes (0.25 <~) $ slice 8 ("0 1*8 2 3*4 4 5 6*8 7") $ sound "{dino:1, dino, dino}" # speed "{1, 1.01, 0.99}" # n "1" # gain 0.6 # room 0.4 # size 0.4 # note 12 # crush "1 2 4 1 5 2 3 " # n "1" # legato 1 # lpf (run 1000)
+
+d5 $ shuffle 8 $ off 0.125 ((# gain 0.5) . (# note 1.005)) $ sometimes (0.25 <~) $ slow 4 $ striate 64 $ sound "{dino:1, dino:1, dino:1}" # speed "{1, 1.01, 0.99}" # gain 0.7 # crush 8 # legato 1 # n "1" # note "1" # room 0.8 # size 0.4 |+ note "12"
+d2 $ s "bd(6,8)"
+d1 $ fast 1 $ rarely (0.125 <~) $ note "{12 ~ ~ 24, 0 ~ 0 ~}" # s "dino" # gain 1 # room 0.7 # speed "{1, 1.03}" # room 0.6 # size 0.6 # crush 2 # lpf 2000
+
+d8 $ silence
+d4 $ slow 2 $  jux rev $ sometimes (fast 4) $ rarely (# gain 0) $ sound "{superpiano(5, 8), superpiano(5, 12)}" # note (choose [15, 11, 7, 9, 6, 4]) # speed "{1.00, 1.01}"# room "{0.8, 0.9}" # size "{0.9, 0.8}" # squiz "3 5 2 5 2 4 0" # pan (rand/2 + 0.25) # gain 0.5 # speed "{1, 1.01}" |+ note "[12|24|0|-12]" 
+hush
+
+setcps 0.5
+d3 $ silence
+d5 $ silence
+d8 $ slow 1 $ sometimes (0.25 <~) $ rarely (0.5 <~) $ striate 64 $ sound "dino:1" # gain 0.7 # crush 5
+d4 $ fast 1 $ sometimes (0.25 <~)$rarely (0.125 <~) $ rarely (# gain 0.2)  $ sound "{reverbkick(3,8), sd:2(5,8)}"# n "[0|1|4|3]"# speed "{1.00, 1.01}" # room "{0.5, 0.3}" # size "{0.5, 0.3}" # gain 0.8
+d7 $ sometimes (0.25 <~) $ slow 2 $ gain "0.8*3 0.9*5 0.5*8 1*8" # note (choose [4, -4, 7, 9, 6, 4]) # n "[0|1|4|3]" # sound "{bass:1, bass:2}" # speed "{1.00, 4}" # room 0.5 # size 0.3 # gain 1
+d3 $ sometimes (0.125 <~) $ shuffle 8 $ slow 0.25 $ striate 8 $ note "1*4 0*8 2*4 3*8 " # s "dino:1" # legato 1 # gain 0
+d1 $ slow 4 $ jux rev $ shuffle 8 $ n "0 1 3 2 4 2 1" # s "birds" # gain 1 # room 1 # size 0.8 # note "-36" # legato 1
+d2 $ sometimes (#hpf 2000) $  slow 4 $ striate 32 $ s "[dino:1*2, dino:1*4]" # gain 1 # speed "[1, 1.05]" # cut 1 |+ note "[12|0|7|8]"
+d1 $ slow 2 $ sometimes (0.25 <~) $ slice 4 "[<0*8 5*2> 3*4 6 4 3 2 1] [4 .. 7]" $ sound "dino:1" # gain 0.8 # room 0.9 # legato 1
+
+d3 $ silence
+d7 $ sometimes (|+ note "[12|0|-7|7|17|24]") $scramble 8 $ rarely (# gain 0.2) $ slow 4 $ striate 128 $ s "vibe" # legato 1 # gain 0.9 # room 0.5 # size 0.3
+d5 $ rarely (# gain 0) $ sometimes (0.125 <~) $ slice 8 ("0*8 1 2 3*4 4*8 5 6 7") $ s "vibe" # legato 1 # gain 1 |- note "-12"
+d2 $ shuffle 8 $ fast 1 $ slice 8 ("~ ~ [0 1*8] [2 3] 4*4 5 6 7*3") $ s "vibe:1" # legato 1 # gain 0.8
+d3 $ slow 16 $ sometimes (|+ note "[15|0|-12|7|-5|4|9]") $ striate 128 $ s "vibe" # note "0" # legato 1 # gain 1 # room 0.5 # size 0.4 |- note "-7"
+d7 $ silence
+d3 $ shuffle 8 $ slow 4 $ sometimes (|+ note "[7|12|24|-12]") $ striate 64 $ s "{vibe, vibe:1}" # gain 1 |- note "[-12|0|12|7|-15|4|-4]" # room 0.5 # legato 1 # n "1" # speed "{1, 0.98}" # gain 0.7
+d2 $ jux rev $ slow 4 $ slice 16 ("0 1 2 3 4 5 6 7") $ s "vibe" # legato 1  |+ note "0" # room 0.8 # size 0.6 # speed 1 # lpq 0.2 # lpf 800
+hush
+$ sometimes (|+ note "[7|12|24|-12]")
+setcps 0.25
+d8 $ off 0.5 (jux rev) $ fast 2 $ s "bd ~ ~ bd cp oh oh cd"
+d3 $ silence
+d4 $ every 3 (0.125 <~) $ every 4 (0.25 <~) $ fast 1 $ s "cp(5,8)" # n "0 1 0 0 1 3 2 3" # room 0.5 # size 0.4
+d2 $ someitmes (slow 2) $ rarely (# squiz "[2|4| 5]") $ every 3 (0.125 <~) $ every 4 (0.25 <~) $ fast 4 $ n "0 ~ ~ 1 ~ ~ 2 ~" # s "reverbkick" # room 0.5
+d9 $ rarely (|+ note "12") $ fast 4 $ gain "0.9*4" # n "[-12|0|3|8|7]" # s "{moog, moog}" # speed "{1, 1.02}" #  legato 1 # gain 1 # release 0.2 |- n "[12|4|7|-12]" # lpf 200
+d8 $ fast 8 $ n "[20|0|-12|19|15]" # s "{supersaw, supersaw}" # release 0.25 # crush 3 |* n "{1, 1.02}" # gain 0.7
+
+d7 $ off 0.05 (# speed 4 ) $ rarely (|+ n "[12|-12]") $ shuffle 8 $ fast 1$ n "[7*3 [0*2 12] ~ 0*8]" # s "{supersaw, supersaw}" # release "0.1" |+ n "{<0 5 -2 3>*2}" # attack 0.1 # gain 0.8
+
+d3 $ silence
+d2 $ fast 4 $ off 0.125 (|+ note "[12|0|-12|15|19]") $ off 0.125 (# speed 0.5) $ sometimes (0.125 <~) $ rarely (fast 2) $ s "reverbkick(3,8)" # gain 0.9
+d1 $ fast 1 $ off 0.125 (|+ note "<12 15 18 24 36>") $ sometimes (0.125 <~) $ rarely (fast 0.5) $ s "hh(5,8)" # crush 3 # gain 1
+d3 $ fast 2 $ off 0.25 (|+ note "<7 8 5 -12 20>") $ rarely (fast 2) $  s "moog*16" # note "[12, 7]" # release "[0.1|0.4]" |- note "[0|-7|-3|-12|-15]" # squiz "<0 1 2 2 0 1 2>" # gain 1 # legato 1
+d4 $ every 4 (# gain 1 ) $ jux rev $ off 0.125 (# squiz (rand*4)) $ slow 1 $ shuffle 8 $ s "cp ho*4 ho*2 cp*3" # room 0.4 # gain 0 # delay 0.5 # delaytime 0.125
+d5 $ fast 2 $ off 0125 ((0.25 <~) . (# squiz 4)) $ off 0.125 (# room 0.5) $ s "cp(3,8)" # gain 1
+d7 $ off 0.25 (# speed 1.02) $ shuffle 8 $ slow 2 $ striate 64 $ s "dino" # gain 0.8 # room 0.9 # legato 1 # n "1"
+d8 $ jux rev $ off 0.25 (# speed 1.03) $ shuffle 8 $ slow 8 $ striate 128 $ s "dino:1" # gain "1" # legato 1
+d9 $ silence
+setcps 0.5
+hush
+d1 $ shuffle 8 $ sometimes (0.125 <~) $ jux rev $ fast 2 $ swingBy (0.15) 4 $ sound "hh hh [hh*3] hh*2" # room 0.5 # size 0.4 # squiz 5 # gain 1.2
+d2$ off 0.125 (|+ note "[20|24|8|7|-4]") $ rarely (fast 2) $ s "[bd*4]" # squiz 8 # note "0" # crush 5
+d3 $ off 0.125 (jux rev) $ n "0 0 1*4 [~ 0]" # s "bass" # room 0.8 # legato 1
+setcps 0.25
+d9 $ silence
+d1 $ silence
+d5 $ jux rev $ every "[5|3|4]" (fast 0.5) $ sound "bd*2 sn:2*2 clak:4*4 ~" # gain 1 # delay 0.4 # delayt "t" # lock 1 # delayfb 0.3 # lpf 4000
+d3 $ fast 1 $ shuffle 8 $ jux rev $ every "2 4 3 2" (# squiz 4) $ rarely (jux rev) $ fast 2 $ sound "bd*2 sn:2*2 clak:4*4 ~" # gain 1 # delay 0.4 # delayt "e" # lock 1 # delayfb 0.3 # lpf (rand*20000)
+d9 $ fast 2 $ shuffle 4 $ iter 4 $ every "[2|3|4|5]" (|+ note "<0 4 12 5 7 16>*2") $ note "[0*8 24*3 7*4 12, 16 -5 29*2 7*3]/2" # s "[supergong, supergong]" |* note "[1, 2.3]" # sustain 0.3 # gain 0.9 # room 1 # size 0.5 |+ note "[7|-12|5|-7|15|23]" # lpf (range 100 3000 rand)
+d9 $ silence
+
+d1 $ sometimes ((0.25 <~ ) . (# s "cp")) $ shuffle 4 $ jux rev $ s "bd*16" # room 1 # squiz 4 # lpf 600
+d2 $ rarely (|+ note "[-12|7|-4|8]") $ slow 4 $ shuffle 8 $ sometimes (0.125 <~) $ striate 32 $ s "dino:1" # cut 1 # gain 0.9
+d3 $ s "cp*8" # gain rand # note "0" # silence
+d3 $ off 0.125 ((|+ note "-24.01") . (# gain 1) . (# squiz 3) . (sometimes (|+ note "32"))) $ rarely (jux rev . (# lpf 100) . (# squiz 5) . (fast "1 2 3 4")) $ s "bass:4*8" # gain 1 # lpf (range 100 8000 rand) # room 0.4 # legato 1
+
+setcps 0.25
+d4 $ sometimes (0.125 <~) $ fast 2 $ off 0.25 ((# lpf 400). (# lpq 0.2)) $ s "bd*2"
+
+
+d2 $fast 2 $ sometimes (0.125 <~) $ almostAlways (# squiz 8) $ every 3 (off 0.125 (|+ note "1.01")) $ rarely (# gain 0) $ ur 4 "[bass kick, claps]"
+    [("bass", s "bass:1"), 
+     ("kick", s "bd(3,8)"),
+     ("claps", s "cp(5,8)")
+    ]
+    []
+
+d5 $jux rev $ off 0.25 (# squiz (4)) $ s "[sd sd [sd sd:1] ~, sd:1 [~ sd:1] [sd ~ sd] sd*4]" # note "[5 |1 |2 |5 |2 |1 |0 |0]"
+d5 $ off 0.25 (jux rev) $ sometimes (0.125 <~) $  fast 2 $  s "{bd(3,8)}" # squiz "{5, 6 }" # note "{1, 4.05}" # gain "{0.6 1, 1 0.5}" # pan ((rand/2) +0.25)
+d3 $ striate 16 $ s "{seawolf, seawolf}" # hpf 100 # gain 0.8 # legato 0.5 # note "{1, 1.01}" # room 0.4
+
+hush
+d2 $ silence
+d1 $ sometimes (0.25 <~) $ shuffle 16 $ sometimes (jux rev . (# room 0.5)) $  jux rev $ slice 8 ("0*3 1 2*2 3 4*4 5*2 6*8 7*4") $ s "breaks152" # legato 1 # lpf 100 # lpq 0
+d5 $ off 0.125 (jux rev) $ s "bd bd*2 bd bd*2" # silence
+d3 $ jux rev $ fast 2 $ rarely (0.125 <~) $ s "sd(3,8)" # n (irand 4) # hpf 1000 # room 0.5
+d4 $ off 0.125 (|+ note "[8|7|3|-12|5]") $ jux rev $ sometimes (0.125 <~) $ s "gab:2*2  ~ [gab:1*3 gab*2] [~ gab:3*4]" # release 0.4 |+ note "0" # gain 0.95
+
+
+d1 $ s "bd*8"
+d2 $ splice 8 $ s "dino"
+
+d1 $ splice 8 "[<0*8 0*2> 3*4 2 4] [4 .. 7]" $ sound "breaks165"
+
+
+d2 $ splice 8 "[<0*8 0*2> 3*4 2 4] [4 .. 7]" $ sound "breaks165"
+  # legato 1

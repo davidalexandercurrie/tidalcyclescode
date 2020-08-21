@@ -1,0 +1,60 @@
+
+https://twitter.com/dvdlxndr
+upcycle.tech
+davidalexandercurrie.com
+
+thanks so much for listening!
+and thanks for having me!!!!!!!!!!!
+
+hush
+
+d1 $ fast 2 $ every 2 (0.0625 <~) $ every 3 (0.125 <~) $ sometimes (rev) $ n "-12 -11 5 0" # s "midi" # midichan 0 # gain 0.8
+d2 $ degradeBy 0.6 $ every 2 (0.1 <~) $ every 3 (0.125 <~) $ sometimes (fast 4) $ degradeBy 0.2 $ n "0*8" # s "midi" # midichan 3 # gain rand # pan rand
+d3 $ degradeBy 0.7 $ every 2 (0.1 <~) $ every 5 (fast 8) $ every 3 (0.125 <~) $ sometimes (fast 0.125) $ n "-15*8 18*8" # gain rand # s "midi" # midichan 2
+d4 $ every 2 (0.25 <~) $ every 3 (0.125 <~) $ fast 8 $ sometimes (fast 0.25) $ n "-25" # gain rand # s "midi" # midichan 4
+d5 $ fast 2 $ sometimes (rev) $ palindrome $ gain "0.1 0.2*2 0.3*2 0.4? 1 0.6 0.7? 0.8*3" # n "15 32 36 13 -1 -11 -23" # s "midi" # midichan 1
+d1 $ every 3 (zoom (0.01, 2)) $ every 4 (# note "~") $ n (degradeBy 0.05 "[0 51 48 24]*16") # sound "midi" # midichan 1
+
+
+d1 $ gain "1" # n (rand-48) # s "midi" # midichan 1
+d2 $ degradeBy 0.2 $ gain "1*16" # n "-24" # s "midi" # midichan 1
+d3 $ gain "0.2"
+d1 $ every 2 (0.0625 <~) $ every 3 (0.125 <~) $ s "midi(3,8)" # midichan 1
+d2 $ n "~ "
+
+
+setcps 0.5
+
+d1 $ note "24 0" # s "midi" # midichan 2
+hush
+d1 $ note "0 2 4 7" # s "midi" # midichan 0
+
+d1 $ every 3 (zoom (0.01, 2)) $ every 4 (# note "~") $ note (degradeBy 0.05 "[0 51 48 24]*12") 
+  # sound "supernoise/8" # midinote ((irand 40)+60) 
+  # attack "0.7" # room 0.7 # size 0.7 # pitch1 "4" # resonance "0.8" # voice "0.5" # pan rand # gain 1
+
+d2 $ sometimes (# note "-24 12 -32 -57?") $ fast 16 $ striate 42 (sound "metal") |- note (rand*64) # gain 0.7 # djf 0.4 # room 0.7 # size 0.7 # up (irand 12)
+
+d3 $ every 4 (spread ($)[slow 6, fast 8, (# crush 4)]) spread ($) [slow 4, fast 8, rev, chop "<68>"] $ sound "midi" # midichan 2
+
+d4 $ every 4 (fast 0.5) $ every 3 (0.125 <~) $ often (0.25 <~) $ fast 4 $ sound "midi(3,8)" # midichan 2
+
+d5 $ every 5 (0.5 <~) $ sound "hh" # room  0.7 # hpf 200 # lpf (irand 5000) 
+
+d6 $ every 2 (0.1 <~) $ every 3 (0.125 <~) $ sometimes (fast 4) $ degradeBy 0.2 $ note "[[67 69]*12, [31 31]*2, 15 32 36, 63/2, 12 7 7]" # sound "moog" # hpf 1000 # lpf ((irand 400)+100) # attack ((rand/10)+0.4) # room 0.3 # release (rand*0.5+0.5) # gain 0.8 # pan rand 
+
+d7 $ every 2 (0.0625 <~) $ every 3 (0.125 <~) $ sound "bd(3,8) sn(5,8)" # lpf ((irand 4000)+ 400) # gain 0.9 # room 0.5 
+
+d8 $ degradeBy 0.1 $ n (run 3) # sound "drumtraks " # gain 0.7 # lpf (irand 6000) # crush 3 # room 0.5 # size 0.7 
+
+hush
+
+tidal_version
+
+
+
+
+
+
+
+

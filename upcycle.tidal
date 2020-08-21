@@ -1,0 +1,331 @@
+
+
+d1 silence
+d2 silence
+d3 silence
+d4 silence
+d5 silence
+d6 silence
+d7 silence
+d8 silence
+
+setcps 0.5
+hush
+
+
+d3 $ fastAppend (sound "bd*2 sn") (sound "arpy jvbass*2")
+d2 $ repeatCycles 3 $ sound "arpy(5,8)" |> n (irand 8)
+d1 $ sound "drum ~ drum drum" |> n (choose [0,2,3])
+d4 $ sound "[drum ~ drum drum]*4" |> n (wchoose [(4,0.25),(0,0.5),(5,0.25)])
+d1 $ sound "drum drum drum drum" 
+d4 $ slow 2 $ sound "rave"
+
+hush
+
+d1 $ every 3? (fast 3) $ note "[[0?]*2, [7? 7], [12 12?], [8 8? 8? 8]*4?]" |> s "birds" |> gain 2
+d2 $ n "0 0 0 0" |> s "reverbkick" |> gain 1
+d3 $ every 3 (fast 0.5) $ n "[0 1 2 3]*2" |> note " [0 -1 -2 -3 30 5 7 -29]*8" |> s "jungbass" |> gain 0.8
+d4 $ every 2 (fast 4) $ n "0 1 3 3" |> note "-0*8 -0*4? -0? ~" |> sound "industrial" |> gain 0.7
+d5 $ every 4 (fast 2) $ n "0 1 2 3 0 1 2 3" |> note "1 3 2 4? 5? 3 5 9" |> sound "808bd" |> gain 1
+d6 $ every 4 (fast 4) $ note "[-12 24 -12 -24]" |> s "blip" |> gain 1
+d8 $ every 4 (fast 4) $ note "[-12 24 -12 -24]" |> s "em2" |> gain 1
+d5 $ every 4 (fast 4) $ note "[-12 24 -12 -24]" |> s "gabba" |> gain 1
+d7 $ every 4 (fast 4) $ note "[-12 24 -12 -24]" |> s "birds" |> gain 0.4
+
+
+
+
+day 1
+d1 $ every 4 (fast 0.75) $ note "[-12 ~ 12 7]*4" |> n "0 1 2 3" |> sound "clubkick"
+d2 $ every 4 (fast 2) $ note "[-24 ~ 12 7]*4" |> n "0 1 2 3" |> sound "industrial"
+
+day 2
+d1 $ fast 4 $ note "[7 4 7 [7 ~ -4]]-24 -12" |> n "0" |> sound "control" |> gain 0.7
+d2 $ every 2 (fast 1.25) $ slow 0.5 $ note "-3 12 0 ~ ~ 27" |> n "1" |> sound "sid"
+
+day 3
+d1 $ palindrome $ iter 8 $ note "[-7 -3 -12? -7 ~ -24?]*3" |> iter 4 (n (run 8)) |> s "bd" |> hpf (run 1000) |> djf rand
+hush
+
+day 4
+setcps 0.5
+d4 $ every 5 (fast 8) $ iter 4 $ note "12*8 24*4? -12? ~"  |> sound "pluck"
+hush
+
+day 5
+d2 $ palindrome $ every 3 (fast 2) $ iter 8 $ note "9 7? -5? -12? 30 40 -22 40 ~ 10 50 -12? ~"  |> sound "909" |>lpf 1200
+
+day6
+d1 $ note "0 [0 ~ 12? 0 ~ 1? 0]" |> n (irand 4) |> s "stab" |> pan rand |> gain rand
+hush
+
+day7
+d3 $ every 2 (0.25 <~) $ every 3 (0.125 <~) $ every 5 (0.12 <~) $ sound "bd*1024" |> n (irand 8) |> speed (fast 1200 $ range 0.5 1 tri) |> lpf 4000 |> lpq rand |>djf sine |> hpf 200
+hush
+
+day 8
+d4 $ s "[bd:0 bd:1, hh:1 perc? hh:3, juno sd? sd:1 sd:1] realclaps"
+d1 $ silence
+hush
+setcps 0.5
+
+day 9
+d1 $ fast "2 4 8 16" $ sound "[bd bd bd? bd, ~ hh? ~ hh, bass3]"
+hush
+
+zozo day 9
+d1 $ stack [n "4*128" |> s "control" |> cutoff (range 400 800 $ slow 4 $ tri) |> crush (run 4) |> sustain "0.2 0.3 0.5 0.6 0.8", rot "<0 2 0 2>" $ stut 2 0.2 0.3 $ s "z-kik:4*3 techno:4*2"]
+
+day 10
+d1 $ every 4 (zoom (0.25, 0.35)) $ sound "jungle*2 hh*3 [sn bd]*2 drum"+sine |> lpf 2000
+hush
+
+day 11
+d2 $ n (irand 256) |> note (irand 32) |> sound "sugar" |> lpf 2000 |>lpq 0.1 |> hpf 100 |> gain 0.5
+hush
+
+setcps (120/60/4)
+day 12
+d3 $ fast 2 $ sound "[reverbkick(3,8), sn(3,7)?]" |> djf rand
+hush
+
+day 13
+d4 $ sound "arpy*8" |> up (run 8)
+d4 $ up (run 64) |> sound "arpy"
+d4 $ sound "arpy*8" |> up (every 2 (rev) $ run 8)
+d4 $ sound $ samples "[drum*8, rave:3, ~ ~ sn ~ ~ ~ sn ~, bass:3 ~ ~ ~ ~ ~ ~ ~]" "[0 2 0 2 0 2 0 2]"
+
+hush
+
+day 14
+d1 $ up "0 12?*2 24?*4 1" |> sound "[erk?, feel, koy?]" |> djf (rand/4+0.6)
+hush
+
+day 15
+d1  $ sound "bd bd sd bd" |> pan "0.5 0.5 1 0"
+hush
+
+d1 $ every 4 (|+ pan rand) $ sound "bd bd sd bd" |> pan 0.5 |> speed rand
+
+d2 $ fast 16 $ every 2 (|+ pan ((rand*0.5)-0.25)) $ n (rand*8) |> sound "drum" |> pan 0.5 |> gain ((rand*0.1)+0.8) |> hpf ((rand*5000)+100)
+
+d1 $ chunk 4 (|> crush 3) $ chop "<16 32>" $ sound "bd*2 h:8*2 sn:2 808:3*3"
+hush
+
+day 16
+
+d1 $ sound "bd*16" |> pan sine
+d1 $ sound "bd*16" |> pan (slowcat [sine, saw, square, tri])
+d2 $ sound "808:1*16 808:2*16" |> speed (range 1 3 $ tri) |> pan (fast 8 $ ((range 0.4 0.6 square)+((rand*0.6)-0.3)))
+
+day 17
+d1 $ every 5 (|+| speed "10") $ every 4 (0.25 <~) $ every 3 (rev) $ sound "rave*128" |> speed "[1 1.25 0.75 -1.5]/3" |> lpf 200 |> hpf 199 |> pan (fast 16 $ sine)
+hush
+
+day 18
+d1 $ every 3 (zoom (0.1, 0.5)) $ every 4 ( |> note "~") $ note (degradeBy 0.05"[0 12 24 -12]*12") |> s "supernoise/8" |> midinote ((irand 40) + 40)  |> voice "0.5" |> pitch1 "4" |> resonance "0.7" |> attack "0.5" |> room "0.6" |> size "0.9"
+d1 $ every 3 (zoom (0.01, 2)) $ every 4 ( |> note "~") $ note (degradeBy 0.05"[0 12 24 -12]*12") |> s "supernoise/8" |> midinote ((irand 40) + 40)  |> voice "0.5" |> pitch1 "4" |> resonance "0.7" |> attack "0.5" |> room "0.6" |> size "0.9"
+hush
+
+day 19
+d4 $ note (choose [0,7,0,19,7,24,-12]-((irand 3)*12)) |> sound (choose ["supersaw", "supergong", "808", "909"]) |> lpf (irand 8000) |> room "0.6" |> size "0.6"
+hush
+
+day 20
+d4 $ every 3 (slow 4) $ every 2 (fast 2) $ n "0*24" |> note (choose [0,3,7,10,50]) |- note ((irand 5)*12) |+ note "12" |> sound "superpiano" |> lpf 800 |> lpq (range 0 0.5 rand)
+hush
+
+day 21
+d5 $ fast 1 $ striate 2 $ every 2 (0.125 <~) $ every 3 (0.1 <~) $ every 5 (0.2 <~) $ note "[12 0 -24?, 50 32 53 20, 2 4 3? 5 3, 28 39, 48 39 23? 50 51? 52 53 0 -12 -23 -12 ]" |> sound "supergong"
+hush
+
+day 22
+d1 $ every 2 (0.2 <~) $ n "0*12" |> note (choose[0, 5]-24) |> sound "supersaw" |> djf rand |> pan rand
+hush
+
+day 23
+d6 $ s "[bd*16, sd*16, hh*32]" |> djf (fast (irand 4) $ sine) |> pan ((rand*0.5)+0.25)
+hush
+
+day 24
+d1 $ fast 0.25 $ note "[-12 -12 -12 ~ -12 ~ -12 ~ -17 ~ ~ -17 ~ ~ -17 ~ -16 -16 -16 ~ -16 ~ -16 ~ -14 ~ ~ -14 ~ ~ -10 ~, 0 ~ 5 7, 7 ~ 12 15]" |> s "supersaw" |> sustain 0.35 |> djf (range 0.2 0.4 rand) |> room rand |> gain (range 0.8 1 rand) |> pan "[0.5, 0, 1]" |> size rand
+hush
+
+day 25
+d1
+hush
+
+d2 $ every 4 (spread ($) [slow 6, fast 4, (|> crush 4)]) $ spread ($) [slow 2, fast 4, rev, chop "<68>"] $ s "uxay:4*4 uxay:8*4" |> pan rand
+d1 $ degradeBy 0.4 $ stack [note "[0 1 2 ~ ~ 3 -12 -24 ~ 2 -10]" |> pan (rand*0.75) |> room 0.3, note "[12 12 12 12 12 ~]*2" |> pan (rand*0.75+0.25) |> room 0.6]  |> s (choose ["supergong", "supermandolin"]) |> djf rand |> delay (rand * 8)
+d2 $ every 2 (0.25 <~) $ every 3 (0.125 <~) $ striate 64 (sound "metal") # note (irand 8) # room 0.2
+hush
+
+d1 $ spread ($) [density 2, rev, slow 2, striate 3, (# speed "0.8")] $ sound "[bd*2 [~ bd]] [sn future]*2 cp jvbass*4"
+
+degradeBy 0.05"[0 12 24 -12]*12"
+
+d1 $ s "bd bd sd sd hh hh"   
+
+day 26
+setcps 10
+d1 $ slow 0.5 $ n "[0*12, 0*8, 0*5]" |> note (choose[0, 0, 0, 3, 3, 3, 7, -5, 12, 36, 3, 3, 3, 0, 0, 0]) |+ note ((irand 6 * 12)-60+((rand)-0.5)) |> s "superchip" |> djf (rand * 0.2 + 0.4) |> release 0.1 |> room (rand * 0.5) |> size (rand * 0.5) |> gain (rand*0.2+0.8)
+hush
+
+day 27
+d1 $ stack [sound (degradeBy 0.8"[stomp*16]") |> n (irand 8) |> pan (rand*0.1+0.45 ) |> lpf 200 |> lpq 0.2, sound (degradeBy 0.6"[metal*32]") |+ note (((irand 5)-2) * 12) |> n (irand 4) |> pan rand |> room rand |> size 0.4]*(irand 8) 
+hush
+
+day 28
+d1 $ striate 128 (sound "metal?") |- note 24
+d3 $ often (fast 0.5) $ fast 2 $ n "1 ~ 1? 1? 1 1 ~ 1 ~" |> s "reverbkick" |> lpf (irand 1600) |> djf (rand/2+0.4)
+d4 $ every 5 (0.5 <~) $ every 4 (0.125 <~) $ every 2 (0.0625 <~) $ striate 128 $ fast 4 $ n "12 12 12 12 12 12 12 12" |> hpf (irand 16000) # s "hh" |> size 0 |> room 0.1 # gain 1
+hush
+d2 $ s "insect*16" |> n (irand 4) |> gain 0.5
+d2 $ silence
+d1 $ s "birds*4" |> n (irand 5)
+d1 $ silence
+
+
+d4 $ fast 6 $ n "1 2" |> s "speech"
+d4 $ silence
+hush
+d1 $ every 5 (0.5 <~) $ every 4 (0.125 <~) $ every 2 (0.0625 <~) $ degradeBy 0.25 $ degradeBy 0.4 $ striate 16 (sound "seawolf*8") |> note "-12 0 2 3 1 0 12 24" |> n (run 8) |> room rand |> size rand # gain 0 # hpf 1000
+
+d1 $ striate 8 (sound "seawolf*8") |> note "-12 0 12 24" |> n (run 8) |> pan rand |> room rand |> size rand # gain 0.7
+d1 $ striate 128 stack [
+  foo
+]
+
+
+setcps 0.8
+d1 $ striate 64 (sound "seawolf*8") |> note "-12 0 12 24" |> n (run 8)
+d1 $ (sound "breaks125")
+hush
+
+let pats =
+      [
+        ("a", stack [n "c4 c5 g4 f4 f5 g4 e5 g4" # s "superpiano" # gain "0.7",
+                     n "[c3,g4,c4]" # s "superpiano"# gain "0.7"
+                    ]
+        ),
+        ("b", stack [n "d4 c5 g4 f4 f5 g4 e5 g4" # s "superpiano" # gain "0.7",
+                     n "[d3,a4,d4]" # s "superpiano"# gain "0.7"
+                    ]
+        ),
+        ("c", stack [s "808*4" # gain "0.7",
+                     n "[f4,c5,f4]" # s "superpiano"# gain "0.7"
+                    ]
+        )
+      ]
+in
+d1 $ ur 12 "a b c" pats []
+
+d1 $ ur 12 
+
+d1 $ s "superpiano"
+hush
+
+setcps 0.5
+d1 $ (n "3 ~ ~ 3 4 ~ 3 ~" |> s "popkick") |> fshift (irand 50) |> djf 0.4
+d2 $ fast 4 $ striate' 32 $ every 4 (0.0043 <~) $ every 3 (0.091 <~) $ every 2 (0.25 <~) $ every 4 (0.125 <~) $ (s "techno:2") |> n (irand 4) |> fshift 100 |> djf rand # room 1
+d3 $ degradeBy 0.1 (sound "hh*16") |> gain 1.5 |> size 0.4 |> lpf (rand*4000) # crush 3
+d4 $ every 2 (0.25 <~) $ every 3 (1.25 <~) $ fast 2 $ degradeBy 0.3 (sound "bd(5,8)") # hpf (rand*1000)
+d5 $ every 2 (0.25 <~) $ every 3 (1.25 <~) $ sound "bd(3,8) sn(5,8)" # lpf 10000 # gain 0.9 # room 0.3
+d1 $ fast 16 $ striate 128 (sound "metal") |- note (rand*64) # gain 0.6 # djf rand # room 0.5 # size 0.7
+d2 $ degradeBy 0.7 $ fast 4 $ n ("24 12 0 0") # sound "supersaw" # room 1 # size 0.7 # gain 0.7 # lpf (100+rand*500) 
+
+
+
+
+d1 $ striate 32 (sound "metal") |- note 2
+d2 $ fast 4 $ n "1" |> s "reverbkick" |> lpf (irand 6400) # gain 1
+d3 $ fast 8 $ sometimes (fast 2) $ s "hh" |> hpf (irand 16000) |> pan rand |> room rand
+
+hush
+
+i wasn't telling you to hush btw =D 
+
+hi mate how r u? dnt delete my code :o !
+Oh there we go! Hey!
+
+=D do you think this will be a solution?
+seems pretty fast time
+
+hard to type with intellisense
+how do you do that
+are my plugins working on your screen too? what about ligatures <| |> ===  <~ ~>
+
+do you have the tidal cycles plugin?
+
+i needed to write this... 
+"files.associations": {
+    "*.tidal": "haskell",
+}
+
+Done!
+
+"editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+
+https://github.com/tonsky/FiraCode
+https://marketplace.visualstudio.com/items?itemName=s-nlf-fh.glassit   transparent window extension
+
+only if you can be fucked :P makes it look pretty
+
+Will do it later, right now trying to figure out OBS I guess
+
+  that's what i use but again not a big deal :P i had to download the font off github somewhere
+
+  i wish there was a way to show when i execute code but not to worry.
+
+  it'll be funny when i type code and you see my contact name above my cursor 
+
+well i do love ligatures but not a big deal :P 
+
+Ok now I got syntax highlighting. What other plugins do I need?
+
+Hmm I don't think so, there's no syntax highlighting or anything.
+
+Also is there a way to make VS code transparent? I assume there is,
+will need that to get the code sitting on top of the camera footage
+
+you can on windows
+i think i was looking it up today. I think there is a plugin for transparent window but doesn't work on mac
+
+
+
+d1 $ every 2 (0.0625 <~) $ every 4 (0.25 <~) $ every 3 (0.125 <~) $ every 5 (0.75 <~) $ striate 32 ( n "1 2" # sound "breaks125" ) # room 1 # djf (fast 4 (sine)) # pan (rand) 
+d2 $ fast 2 $ every 2 (0.00625 <~) $ every 4 (0.2 <~) $ every 3 (0.15 <~) $ every 5 (0.7 <~) $ note "-12*32" # sound "popkick:3" # hpf 4000
+d3 $ sometimes (fast 2) $ n "0 0 1 ~ 12 ~ 32? 21" # sound "bd:3" # gain 0.8 # hpf 2000
+d4 $ fast 8 $ note "1 2? 3 4?" # sound "hh" # pan (rand/2+0.25) # room 0.15 # hpf 10000
+d6 $ every 2 (0.0625 <~) $ every 4 (0.25 <~) $ every 3 (0.125 <~) $ every 5 (0.75 <~) $ sound "~ ~ ~ cp" # hpf 100 # room 0.8 # gain 0.8
+d7 $ degradeBy 0.85 $ fast 32 $ striate 16 ( sound "bassdm:2*16" )
+d8 $ note "0 ~ 2 1 4 3 2 40" # sound "ifdrums" 
+hush
+
+d9 $ note "-32 . 12 12 12 -33 . ~ 12 -24" # sound "arpy" # room 0.8 # gain 0.8 # pan (sine) 
+d1 $ degradeBy 0.1 $ n (run 16) # sound "drumtraks" # gain 0.7 # lpf 1000 # crush 1 # room 0.5 
+d2 $ fast 2 $ degradeBy 0.25 $ n "1 2 3 4" # sound "popkick:2" # crush 2 # gain 0.5 # pan 0.6 # room 1 
+d4 $ fast 16 $ degradeBy 0.6 $ n "1 2 3 4" # sound "popkick:1" # crush 2 # gain 0.5 # hpf 100 # pan 0.2 # room 1 # silence
+
+d6 $ degradeBy 0.75 $ sound "east*64" # n (irand 16) # hpf 2000 # crush 4 # lpf 2005 # room 1 # pan rand
+
+setcps 0.4
+hush
+
+d1 $ degradeBy 0.2 $ n (run 8) # note (irand 8) # sound "kurt" # gain 1
+d2 $ fast 4 $ degradeBy 0.8 $ note (run 32) # n (irand 16) # sound (choose ["east:0", "east:1", "supergong"]) # gain 0.8
+d3 $ every 5 (0.5 <~) $ every 4 (0.125 <~) $ every 2 (0.0625 <~) $ degradeBy 0.25 $ degradeBy 0.3 $ n "1 2 3 1 2 3 23 1 2 1 3 2 3 2 3 2" # sound "popkick" # lpf 1500 # hpf 100 # crush 2 # gain 1
+hush
+$ every 2 (0.0625 <~) $ every 4 (0.125 <~) $ every 3 (0.5 <~) $ every 5 (0.5 <~)
+
+d1 $ every 2 (0.0628 <~) $ every 4 (0.2 <~) $ every 3 (0.12 <~) $ every 5 (0.55 <~) $ striate 16 ( n "1 1 1 2 2 5  9 8 303 8 2 3" # sound "breaks125" ) # room 0.8 # djf (fast 15 (sine)) # gain 0.7 # lpf 3000
+d2 $ every 2 (0.0625 <~) $ every 4 (0.625 <~) $ every 3 (0.125 <~) $ every 5 (0.5 <~) $ slow 2 $ fast 4 $ note "0 0 0 3 -12? -4? -22 12" # sound "hh" # room 0.7 # hpf 200 # lpf (irand 2500)
+d3 $ degradeBy 0.65 $ n (run 48) # note "-24" # sound "casio" # room 0.8 # lpf 550 # djf rand # gain 0
+d4 $ fast 2 $ every 2 (0.00625 <~) $ every 4 (0.25 <~) $ every 3 (0.25 <~) $ every 5 (0.75 <~) $ slow 1 $ degradeBy 0.2 $ note "-12 0 12 0 -24 0 -12 -12" # sound "popkick" # hpf 50 # lpf 800 # release 0.1
+d5 $ every 2 (0.0625 <~) $ every 4 (0.25 <~) $ every 3 (0.125 <~) $ every 5 (0.75 <~) $ slow 2 $ striate' 256 "0.05 0.09 0.00001 0.2 0.01 0.001" (sound "bass2 bass3 bass bass0") # gain 0.6 # hpf 80
+
+d6 $ every 2 (0.0625 <~) $ every 4 (0.35 <~) $ degradeBy 1 $ note "1 4 2 3 2? 4 2 39? 3 2" # sound "east:2" # hpf 80 # lpf 1050 # room 1 # gain 0.7 
+d4 $ fast 8 $ every 2 (0.0625 <~) $ every 4 (1 <~) $ degradeBy 1 $ note "4? 2? 5 2? 1" # sound "east:2" # hpf 80 # lpf 250 # room 0.8 # gain 0.5
+hush
+
