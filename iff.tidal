@@ -1,0 +1,84 @@
+hush
+
+d1 $ jux rev $ rarely (# gain 0) $ rarely (# room 0.7) $ s "insect*7" # n ((irand 2)+1) # cps ((rand*6) + 8) # note ((rand*5)-12) # lpf (fast (rand) $ sine*1500)
+
+
+setcps 0.5
+d1 $ jux rev $ s "bend*8" # n (irand 4) # legato 1 # cps (rand+0.5) # room 0.2 # size 0.8
+d2 $ jux rev $ s "breath*13" # n (irand 4) # legato 0.8 # room 0.5 # size 0.8 # gain 0.9 |+ note (rand*0.25+0.75)
+
+hush
+
+
+-- 1 nature slow small progressions
+peaceful, complex, organic
+
+d1 $ slow 18 $ stack [
+  jux rev $ off 0.02 (|+ note "17") $ sometimes (# gain ((rand/2) + 0.5)) $  s "ade*19" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 1.2) # cps ((rand/2) + 0.3) # room 0.4 |+ note (sine),
+  rarely (0.15 <~) $ off 0.02 (|+ note "17") $ rarely (# gain ((rand/2) + 0.25)) $  s "ade*15" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 1.8) # gain 0.5 |+ note (saw),
+  sometimes (0.2 <~) $ off 0.02 (|+ note "[21|23|19|14]").(# room 0.8) $ rarely (# gain ((rand/2))) $  s "ade*11" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 2.2) # gain 0.3 |+ note (sine)
+] # gain 0.3
+
+d2 $ slow 25 $ stack [
+  jux rev $ off 0.02 (|+ note "5") $ sometimes (# gain ((rand/2) + 0.5)) $  s "ade:3*19" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 1.2) # cps ((rand)+0.2) # room 0.8 |- note (sine) # release 0.2,
+  rarely (0.15 <~) $ off 0.02 (|+ note "7") $ rarely (# gain ((rand/2) + 0.25)) $  s "ade:2*15" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 0.8) # gain 0.5 |- note (saw),
+  sometimes (0.2 <~) $ off 0.02 (|+ note "[21|23|19|14]").(# room 0.8) $ rarely (# gain ((rand/2))) $  s "ade:3*11" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 0.2) # gain 0.4 |- note (sine)
+] # gain 0.4 # lpf 5000
+
+d5 $ slow 51 $ stack [
+  jux rev $ off 0.02 (|+ note "5") $ sometimes (# gain ((rand/2) + 0.5)) $  s "ade:3*19" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 1.2) # cps ((rand)+0.2) # room 0.8 |- note (sine) # release 0.3,
+  rarely (0.15 <~) $ off 0.02 (|+ note "7") $ rarely (# gain ((rand/2) + 0.25)) $  s "ade:2*15" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 0.8) # gain 0.5 |- note (saw) # release 0.2,
+  sometimes (0.2 <~) $ off 0.02 (|+ note "[21|23|19|14]").(# room 0.8) $ rarely (# gain ((rand/2))) $  s "ade:3*11" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 0.2) # gain 0.4 |- note (sine) # release 0.4
+] # gain 0.5 # lpf 2000
+
+
+hush
+
+-- 2 human a little bit faster
+disruptive, pushing, control, taking over
+
+d3 $ stack [
+  jux rev $ sometimes (# gain 0) $ striate 32 $ s "short" # djf (fast (rand + 0.2) $ sine) # room 0.1,
+  sometimes (# gain 0) $ (0.15 <~) $ striate 37 $ s "short" # djf (fast ((rand*2) + 0.2) $ sine/2) # room 0.2 # pan ((rand/2) + 0.25),
+  sometimes (# gain 0) $ (0.15 <~) $ striate 17 $ s "short" # djf (fast ((rand/2) + 0.2) $ sine/2) # room 0.3 # pan ((rand/2) + 0.25) # gain 0.8
+] # lpf 5000
+
+d4 $ stack [
+  jux rev $ n (run 16) # s "bubble" # djf (fast 4 $ sine/2),
+  n (run 16) # s "bubble" # djf (fast 4 $ sine/2) # pan ((rand/10) + 0.45) # gain 0.8,
+  sometimes (0.1 <~) $ slow 2 $ striate 32 $ n "0 1*2 ~ 2*3 [~ 7]" # s "can" # gain 0.7 # room 0.2
+] # gain 0.7
+
+
+-- 3 industrialisation
+overwhelming, order, organised, chaotic, destructive, nature is replaced
+
+d5 $ stack [
+  sometimes (fast 1.5) $ rarely (fast 0.25) $ fast 0.5 $ note "0 1 4 5 9 3 2 5 3 0" # s "ades3:1 ades3*16" # cps ((rand/2) + 0.3) # room 0.4 # djf rand # gain 1,
+  s "~ clubkick" # note (irand 12) # djf 0.2,
+  sometimes (rand <~) $ rarely (# gain 0) $ note "~ 0*2 7*3 19*7" # s "dist" # legato 1 # gain 0.7 # djf 0.3,
+  jux rev $ slow 2 $ every 4 (0.1 <~) $ every 5 (0.25 <~) $ n "[0 ~ 15, 24 27.01]" # s "moog" # legato 1 # room 1 # gain 0.6 # release 3 # lpf 1200 # attack 0.8,
+  jux rev $ slow 2 $ every 3 (0.1 <~) $ every 4 (0.25 <~) $ sometimes (|+ note "[-5|7|3|-4]") $ n "[0 ~ 15, 24 27.01]" # s "moog" # legato 1 # room 1 # gain 0.6 # release 3 # lpf 1200 # attack 0.4 # gain 0.7
+] # gain 0.6
+
+-- 4 combination pick up the pace
+struggle for power, natural distasters, 
+
+
+-- 5 abstract look into the future
+ask questions, remnants of the past, forgotten
+
+hush
+
+
+-- Scene1
+d1 $ slow 1 $ shuffle 32 $ s "birds" # speed 0.0005 # hpf 800 # note "64" # gain 1.5
+d2 $ jux rev $ slow 1 $ shuffle 64 $ s "birds:1" # speed 0.0001 # hpf 500 # note "64" # gain 1.5
+hush
+
+
+-- Scene2
+-- Scene3
+-- Scene4
+-- Scene5
+

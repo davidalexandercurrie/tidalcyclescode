@@ -78,7 +78,7 @@ d4 $ jux rev
     # note "[0|7|3|15]"
     # gain 0.6
 
-setcps 1
+setcps 0.5
 d1 $ s "bubble*16" # n (irand 8) # cps (rand+0.25) # djf rand # room (rand*1) # size rand # lpf (sine*8000) 
 
 d2 
@@ -88,6 +88,5 @@ d2
     $ hurry (0.125) 
     $  s "bottle*80" # n (irand 13) # room 0.9 # size 0.9 # hpf 500 # gain ((rand*0.6))
     # hpf 800
-    # cps (0)
 
 hush
