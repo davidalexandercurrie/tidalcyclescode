@@ -5,13 +5,15 @@ d1 $ jux rev $ rarely (# gain 0) $ rarely (# room 0.7) $ s "insect*7" # n ((iran
 
 setcps 0.5
 d1 $ jux rev $ s "bend*8" # n (irand 4) # legato 1 # cps (rand+0.5) # room 0.2 # size 0.8
-d2 $ jux rev $ s "breath*13" # n (irand 4) # legato 0.8 # room 0.5 # size 0.8 # gain 0.9 |+ note (rand*0.25+0.75)
+d2 $ jux rev $ s "breath*13" # n (irand 4) # legato 0.8 # room 0.5 # size 0.8 # gain 0.9 |+ note (rand*0.25+0.75) 
 
 hush
 
 
 -- 1 nature slow small progressions
 peaceful, complex, organic
+
+
 
 d1 $ slow 18 $ stack [
   jux rev $ off 0.02 (|+ note "17") $ sometimes (# gain ((rand/2) + 0.5)) $  s "ade*19" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 1.2) # cps ((rand/2) + 0.3) # room 0.4 |+ note (sine),
@@ -71,14 +73,9 @@ ask questions, remnants of the past, forgotten
 hush
 
 
--- Scene1
+-- Scene1 revised
 d1 $ slow 1 $ shuffle 32 $ s "birds" # speed 0.0005 # hpf 800 # note "64" # gain 1.5
 d2 $ jux rev $ slow 1 $ shuffle 64 $ s "birds:1" # speed 0.0001 # hpf 500 # note "64" # gain 1.5
 hush
 
-
--- Scene2
--- Scene3
--- Scene4
--- Scene5
 
