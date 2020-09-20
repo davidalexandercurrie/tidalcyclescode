@@ -1,0 +1,35 @@
+d1 $ rarely (hurry 0.5) $ sometimes (0.25 <~) $ striate 64 $ s "auto" # room 0.4 # gain 1 # pan ((rand/2) +0.25)
+
+d1 $ often (hurry (0.5)) $ every (irand 8) (fast (0.5)) 
+  $ s "bd . bd*3 . bd*4 . bd*2" 
+  # hpf 10 # lpf 12000 # pan rand
+
+d2 $ every (irand 8) (fast (irand 8)) 
+  $ striate (irand 128) 
+  $ s "~ . auto:4*4" 
+  # hpf 100 # room 0.7 # gain 1.2
+
+d3 $ fast ((irand 4)+2) $  s "auto*4" 
+  # n (irand 8) # lpf 1200 
+  # room 0.7 # gain 0.7
+
+hush
+
+setcps 0.25
+
+
+d1 $ jux rev
+    $ sometimes (# gain 0)
+    $ fast 8 $ sometimes (0.25 <~)
+    $ off 0.25 (jux rev)
+    $ off 0.125 (|+ note "-7" )
+    $ note "[[~ 0] 12*4 7*3 3, -7*3 -2 [~ -9]]"
+    # s "gtr ~ gtr:1 gtr:2"
+    # legato 0.4
+    # lpf (rand * 5300)
+    # gain rand
+
+
+d1 $ every 3 (zoom (0.01, 2)) $ every 4 (# note "~") $ note (degradeBy 0.05 "[0 51 48 24]*12") 
+  # sound "supernoise/8" # midinote ((irand 40)+60) 
+  # attack "0.7" # room 0.7 # size 0.7 # pitch1 "4" # resonance "0.8" # voice "0.5" # pan rand # gain 1

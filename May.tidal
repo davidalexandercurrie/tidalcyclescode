@@ -2,10 +2,12 @@ d1 $ every (irand 8) (fast (irand 4))
   $ s "bd . bd*3 . bd*4 . bd*2" 
   # hpf 400 # lpf 1600 # pan rand
 
+setcps 0.15
+
 d2 $ every (irand 8) (fast (irand 8)) 
   $ striate (irand 128) 
   $ s "~ . auto:4*4" 
-  # hpf 100 # room 0.7 # gain 1.2
+  # hpf 100 # room 0.7 # gain 1
 
 d3 $ fast ((irand 4)+2) $  s "auto*4" 
   # n (irand 8) # lpf 1200 

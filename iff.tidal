@@ -19,7 +19,7 @@ d1 $ slow 18 $ stack [
   jux rev $ off 0.02 (|+ note "17") $ sometimes (# gain ((rand/2) + 0.5)) $  s "ade*19" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 1.2) # cps ((rand/2) + 0.3) # room 0.4 |+ note (sine),
   rarely (0.15 <~) $ off 0.02 (|+ note "17") $ rarely (# gain ((rand/2) + 0.25)) $  s "ade*15" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 1.8) # gain 0.5 |+ note (saw),
   sometimes (0.2 <~) $ off 0.02 (|+ note "[21|23|19|14]").(# room 0.8) $ rarely (# gain ((rand/2))) $  s "ade*11" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 2.2) # gain 0.3 |+ note (sine)
-] # gain 0.3
+] # gain 0.8
 
 d2 $ slow 25 $ stack [
   jux rev $ off 0.02 (|+ note "5") $ sometimes (# gain ((rand/2) + 0.5)) $  s "ade:3*19" # djf ((rand/2)+0.5) # legato 1 # speed ((rand/10) + 1.2) # cps ((rand)+0.2) # room 0.8 |- note (sine) # release 0.2,
